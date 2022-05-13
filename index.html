@@ -6,31 +6,36 @@
     <meta property="og:title" content="A Basic HTML5 Template">
     <meta property="og:type" content="website">
 
+    <link href="./tailwind/output.css" rel="stylesheet">
     <title>Tic-Tac-Toe</title>
 
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">       
+
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="style.css"></script>
     <script src="main.js" defer></script>
 </head>
 
 <body>
-    
     <div class="container mx-auto">
-        <header>Tic-Tac-Toe</header>
-        <div class="grid grid-cols-3 gap-2 w-72 mx-auto">
-            <button id="00" class="block border-4 p-10" onclick="board_click(this.id)">&nbsp</button>
-            <button id="01" class="block border-4 p-10" onclick="board_click(this.id)">&nbsp</button>
-            <button id="02" class="block border-4 p-10" onclick="board_click(this.id)">&nbsp</button>
-            <button id="10" class="block border-4 p-10" onclick="board_click(this.id)">&nbsp</button>
-            <button id="11" class="block border-4 p-10" onclick="board_click(this.id)">&nbsp</button>
-            <button id="12" class="block border-4 p-10" onclick="board_click(this.id)">&nbsp</button>
-            <button id="20" class="block border-4 p-10" onclick="board_click(this.id)">&nbsp</button>
-            <button id="21" class="block border-4 p-10" onclick="board_click(this.id)">&nbsp</button>
-            <button id="22" class="block border-4 p-10" onclick="board_click(this.id)">&nbsp</button>
+        <header class="font-family-koulen text-6xl mt-3.5 mx-auto text-center flex flex-col">Tic-Tac-Toe</header>
+        <p class="mx-auto text-center">Play Tic-Tac-Toe against an impossible Bot to defeat</p>
+        <div class="grid grid-cols-3 gap-2 w-72 mx-auto mt-12">
+            <button id="00" class="block border-4 text-4xl pt-5 font-family-koulen" onclick="board_click(this.id)">&nbsp</button>
+            <button id="01" class="block border-4 text-4xl font-family-koulen" onclick="board_click(this.id)">&nbsp</button>
+            <button id="02" class="block border-4 text-4xl font-family-koulen" onclick="board_click(this.id)">&nbsp</button>
+            <button id="10" class="block border-4 text-4xl font-family-koulen" onclick="board_click(this.id)">&nbsp</button>
+            <button id="11" class="block border-4 text-4xl font-family-koulen" onclick="board_click(this.id)">&nbsp</button>
+            <button id="12" class="block border-4 text-4xl font-family-koulen" onclick="board_click(this.id)">&nbsp</button>
+            <button id="20" class="block border-4 text-4xl font-family-koulen" onclick="board_click(this.id)">&nbsp</button>
+            <button id="21" class="block border-4 text-4xl font-family-koulen" onclick="board_click(this.id)">&nbsp</button>
+            <button id="22" class="block border-4 text-4xl font-family-koulen" onclick="board_click(this.id)">&nbsp</button>
         </div>
-
-        <div id="turn-display">Your Turn!</div>     
     </div>
 </body>

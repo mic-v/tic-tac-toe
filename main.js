@@ -367,15 +367,16 @@ function equals3(a, b ,c)
 
 
 function bestMove() {
-    let bestScore = -1000;
+    let bestScore = 1000;
     const move = [-1,-1];
     for(let i = 0; i < 3; i++){
         for(let j = 0; j < 3; j++) {
             if(board[i][j] == "") {
-                board[i][j] = human;
-                let score = minimax(board, 0, false);
+                board[i][j] = ai;
+                let score = minimax(board, 0, true);
+                console.log("move " + i + "/" + j + " " + " Score: " + score);
                 board[i][j] = "";
-                if(score > bestScore) {
+                if(score < bestScore) {
                     bestScore = score;
                     move[0] = i;
                     move[1] = j;
@@ -396,8 +397,8 @@ function bestMove() {
 function minimax(board, depth, isMaximizingPlayer)
 {
     let result = evaluateBoard(board);
-    if(result == maximalValue) return maximalValue;
-    if(result == minimalValue) return minimalValue;
+    if(result == maximalValue) return 1;
+    if(result == minimalValue) return -1;
     if(!isMovesLeft(board)) return 0;
 
     if(isMaximizingPlayer){
@@ -410,7 +411,9 @@ function minimax(board, depth, isMaximizingPlayer)
                     let score = minimax(board, depth + 1, false);
                     board[i][j] = "";
                     //console.log(board);
-                    bestScore = Math.max(score, bestScore);
+                    if(score >= bestScore){
+                        bestScore = score;
+                    }
                 }
             } 
         }
@@ -423,7 +426,10 @@ function minimax(board, depth, isMaximizingPlayer)
                     board[i][j] = ai;
                     let score = minimax(board, depth + 1, true);
                     board[i][j] = "";
-                    bestScore = Math.min(score,bestScore);
+                    if(score <= bestScore)
+                    {
+                        bestScore = score;
+                    }
                 }
             } 
         }
@@ -435,16 +441,16 @@ function minimax(board, depth, isMaximizingPlayer)
 function evaluateBoard(board) {
     for(let i = 0; i < 3 ; i++) {
         if(equals3(board[i][0], board[i][1], board[i][2])) {
-            if(board[i][0] === human) {
+            if(board[i][0] == human) {
                 return maximalValue;
-            } else if(board[i][0] === ai) {
+            } else if(board[i][0] == ai) {
                 return minimalValue;
             }
         }
     }
     for(let i = 0; i < 3 ; i++) {
         if(equals3(board[0][i], board[1][i], board[2][i])) {
-            if(board[0][i] === human) {
+            if(board[0][i] == human) {
                 return maximalValue;
             } else if(board[0][i] === ai) {
                 return minimalValue;
@@ -454,15 +460,15 @@ function evaluateBoard(board) {
     
     
     if(equals3(board[0][0], board[1][1], board[2][2])) {
-        if(board[0][0] === human)
+        if(board[0][0] == human)
             return maximalValue;
         else if(board[0][0] === ai)
             return minimalValue;
     }
     if(equals3(board[0][2], board[1][1], board[2][0])) {
-        if(board[0][2] === human)
+        if(board[0][2] == human)
             return maximalValue;
-        else if(board[0][2] === ai)
+        else if(board[0][2] == ai)
             return minimalValue;
     }
     return 0;
@@ -484,8 +490,6 @@ function perform_move(move) {
     console.log(board);
 }
 
-//bestMove();
-
 function board_click(clicked_id)
 {
     if(humanTurn)
@@ -493,3 +497,13 @@ function board_click(clicked_id)
     //gameboard.perform_move(clicked_id);
     //document.getElementById(clicked_id).innerHTML = 'x';
 }
+
+/*
+
+const gameBoard = (() => {
+
+
+
+
+})();
+*/
