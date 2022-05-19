@@ -24,18 +24,48 @@
 
 <body>
     <div class="container mx-auto">
-        <header class="font-family-koulen text-6xl mt-3.5 mx-auto text-center flex flex-col">Tic-Tac-Toe</header>
-        <p class="mx-auto text-center">Play Tic-Tac-Toe against an impossible Bot to defeat</p>
-        <div class="grid grid-cols-3 gap-2 w-72 mx-auto mt-12">
-            <button id="00" class="block border-4 text-4xl pt-5 font-family-koulen" onclick="board_click(this.id)">&nbsp</button>
-            <button id="01" class="block border-4 text-4xl font-family-koulen" onclick="board_click(this.id)">&nbsp</button>
-            <button id="02" class="block border-4 text-4xl font-family-koulen" onclick="board_click(this.id)">&nbsp</button>
-            <button id="10" class="block border-4 text-4xl font-family-koulen" onclick="board_click(this.id)">&nbsp</button>
-            <button id="11" class="block border-4 text-4xl font-family-koulen" onclick="board_click(this.id)">&nbsp</button>
-            <button id="12" class="block border-4 text-4xl font-family-koulen" onclick="board_click(this.id)">&nbsp</button>
-            <button id="20" class="block border-4 text-4xl font-family-koulen" onclick="board_click(this.id)">&nbsp</button>
-            <button id="21" class="block border-4 text-4xl font-family-koulen" onclick="board_click(this.id)">&nbsp</button>
-            <button id="22" class="block border-4 text-4xl font-family-koulen" onclick="board_click(this.id)">&nbsp</button>
+        <header class="font-family-koulen text-amber-500 text-6xl mt-3.5 mx-auto text-center flex flex-col">Tic-Tac-Toe</header>
+        <p class="mx-auto font-mono text-center">Play Tic-Tac-Toe against an Impossible Bot to Defeat</p>
+        <div class="relative h-92 w-auto">
+            <div id="game-result" class="absolute w-64 h-5/6 mx-auto top-6 left-0 right-0 bg-amber-500 rounded-md bg-opacity-50 text-center opacity-0 z-0" id="winner">
+                <div class="font-family-koulen text-blue-600 opacity-90 h-full flex flex-col justify-center">
+                    <h2 id="result-message" class="text-4xl">Message</h2>
+                    <h3 class="text-2l">Press Board to Play Again</h3>
+                </div>
+            </div>
+            <div class="relative grid grid-cols-3 gap-2 w-72 mx-auto mt-12 z-30">
+                <button id="00" class="ttt-item block rounded-tl-2xl border-4 text-4xl py-5 font-family-koulen">&nbsp</button>
+                <button id="01" class="ttt-item block border-4 text-4xl py-5 font-family-koulen">&nbsp</button>
+                <button id="02" class="ttt-item block border-4 text-4xl py-5 font-family-koulen">&nbsp</button>
+                <button id="10" class="ttt-item block border-4 text-4xl py-5 font-family-koulen">&nbsp</button>
+                <button id="11" class="ttt-item block border-4 text-4xl py-5 font-family-koulen">&nbsp</button>
+                <button id="12" class="ttt-item block border-4 text-4xl py-5 font-family-koulen">&nbsp</button>
+                <button id="20" class="ttt-item block border-4 text-4xl py-5 font-family-koulen">&nbsp</button>
+                <button id="21" class="ttt-item block border-4 text-4xl py-5 font-family-koulen">&nbsp</button>
+                <button id="22" class="ttt-item block rounded-br-2xl border-4 text-4xl py-5 font-family-koulen">&nbsp</button>
+            </div>
+
+        </div>
+
+        </div>
+        <div class="flex flex-col justify-around m-12 px-3 py-24 h-36 w-7/12 mx-auto bg-gray-200 ">
+            <div class="flex justify-between content-between">
+                <div class="w-1/2">
+                    <p class="font-mono my-5">Player First?</p>
+                    <p class="font-mono my-5">Choose Player Icon:</p>
+                </div>
+                <div class="flex flex-col justify-around content-end">
+                    <label for="check" class="inline-block relative bg-gray-500 cursor-pointer h-6 w-16 rounded-full">
+                        <input type="checkbox" id="check" class="sr-only peer">
+                        <span id="check-text" class="font-mono text-sm text-center w-2/5 h-4/5 bg-amber-300 absolute rounded-full left-1 top-0.5 peer-checked:bg-amber-600 peer-checked:left-8 transition-all duration-500">Yes</span>
+                    </label>
+                    <label for="check2" class="inline-block relative bg-gray-500 cursor-pointer h-6 w-16 rounded-full">
+                        <input type="checkbox" id="check2" class="sr-only peer">
+                        <span id="check2-text" class="font-mono text-center w-2/5 h-4/5 bg-amber-300 absolute rounded-full left-1 top-0.5 peer-checked:bg-amber-600 peer-checked:left-8 transition-all duration-500">X</span>
+                    </label>
+                </div>
+            </div>
+            <button id="reset-board" class="bg-gray-700 rounded py-2 w-5/12 mx-auto font-mono text-white">Reset Board</button>
         </div>
     </div>
 </body>
